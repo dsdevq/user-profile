@@ -1,7 +1,6 @@
 @charset "UTF-8";
 /* You can add global styles to this file, and also import other style files */
 /* Обнуление всех стилей */
-@import url("http://fonts.cdnfonts.com/css/circe");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -50,6 +49,18 @@ table {
   border-spacing: 0;
 }
 
+@font-face {
+  font-family: "Circe";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Circe"), url("https://fonts.cdnfonts.com/s/13503/CRC55.woff") format("woff");
+}
+@font-face {
+  font-family: "Circe Bold";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Circe Bold"), url("https://fonts.cdnfonts.com/s/13503/CRC65.woff") format("woff");
+}
 html {
   height: 100%;
   line-height: 1;
@@ -61,7 +72,7 @@ body {
 }
 
 * {
-  font-family: Circe, sans-serif;
+  font-family: "Circe";
 }
 
 .wrapper {
@@ -116,40 +127,18 @@ body {
 
 .user__menu {
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
 }
 .user__item {
-  display: flex;
-  gap: 5px;
-  justify-content: space-between;
-  background-color: #1D1C1C;
   position: relative;
+  border: 2px solid #DB9351;
 }
 .user__item p, .user__item span {
   cursor: pointer;
 }
 .user__item span {
   font-weight: 400;
-}
-.user__item:first-child {
-  border: 2px solid #DB9351;
-}
-.user__item:nth-child(2) {
-  font-weight: 700;
-  color: #DB9351;
-}
-.user__item:not(:first-child) {
-  padding: 50px 30px;
-}
-.user__item:nth-child(3) {
-  border-bottom: 1px solid #242424;
-  border-top: 1px solid #242424;
-}
-.user__item:last-child {
-  background-color: #DB9351;
-  font-weight: 700;
-  border-bottom: none;
-  justify-content: center;
 }
 .user__image {
   max-width: 100%;
@@ -183,7 +172,37 @@ body {
   left: 7px;
 }
 
-.item-details__box {
+.information {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 1;
+  flex-shrink: 100px;
+}
+.information__item {
+  flex: 1;
+  padding: 50px 30px;
+  background-color: #1D1C1C;
+  display: flex;
+  gap: 5px;
+  justify-content: space-between;
+}
+.information__item:nth-child(1) {
+  font-family: "Circe Bold";
+  font-weight: 700;
+  color: #DB9351;
+}
+.information__item:nth-child(2) {
+  border-bottom: 1px solid #242424;
+  border-top: 1px solid #242424;
+}
+.information__item:last-child {
+  background-color: #DB9351;
+  font-family: "Circe Bold";
+  font-weight: 700;
+  border-bottom: none;
+  justify-content: center;
+}
+.information__box {
   display: flex;
   flex-direction: column;
   gap: 22px;
@@ -257,6 +276,7 @@ body {
   position: relative;
 }
 .user-container__username {
+  font-family: "Circe Bold";
   font-weight: 700;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -365,6 +385,7 @@ body {
 }
 
 .active {
+  font-family: "Circe Bold";
   font-weight: 700;
   border: 1px solid #DB9351;
   border-radius: 50%;
@@ -372,6 +393,9 @@ body {
 }
 
 @media (max-width: 991.98px) {
+  .main__user {
+    flex: 1;
+  }
   .main__container {
     flex-wrap: wrap;
     justify-content: center;
@@ -379,23 +403,19 @@ body {
   .user__menu {
     flex-direction: row;
   }
-  .user__item:not(:first-child) {
+  .information__item {
     padding: 25px 15px;
     border: 1px solid #242424;
     align-items: center;
   }
 }
 @media (max-width: 767.98px) {
-  .main__user {
-    flex: 1;
-  }
-  .user__item:not(:first-child) {
+  .information__item {
     padding: 10px;
     align-items: center;
   }
   .user__menu {
     flex-direction: row;
-    flex-wrap: wrap;
   }
   .mails__pages {
     gap: 2px;
