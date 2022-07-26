@@ -110,6 +110,7 @@ body {
   flex: 0 1 220px;
 }
 .main__mails {
+  width: 100%;
   flex: 0 1 812px;
 }
 
@@ -237,6 +238,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 5px;
+  position: relative;
   border-top: 1px solid #212121;
   border-bottom: 1px solid #212121;
 }
@@ -264,22 +266,12 @@ body {
   text-decoration: underline;
 }
 .user-container__text {
+  color: #959595;
   max-width: 368px;
   width: 100%;
-  position: relative;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-}
-.user-container__text::after {
-  content: "";
-  position: absolute;
-  top: 0%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  box-shadow: inset -50px 0px 35px 50px rgba(21, 21, 21, 0.5);
 }
 .user-container__decor::before {
   content: "";
